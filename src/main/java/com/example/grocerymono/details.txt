@@ -1,0 +1,93 @@
+db.roles.insertMany([
+   { name: "ROLE_USER" },
+   { name: "ROLE_OWNER" },
+   { name: "ROLE_ADMIN" },
+
+])
+
+
+
+
+db.categories.insertMany([
+    {categoryName:"GROCERY_AND_STAPLES"},
+    {categoryName:"VEGETABLES_AND_FRUITS"},
+    {categoryName:"PERSONAL_CARE"},
+    {categoryName:"HOUSEHOLD_ITEMS"},
+    {categoryName:"KITCHEN_AND_DINING_NEEDS"},
+    {categoryName:"BISCUITS_SNACKS_CHOCOLATES"},
+    {categoryName:"BEVERAGES"},
+    {categoryName:"BREAKFAST_AND_DIARY}",
+    {categoryName:"NOODLES_SAUCES_INSTANT_FOOD}",
+    {categoryName:"HOME_FURNISHING_AND_DECOR"},
+    {categoryName:"HOME_IMPROVEMENT_AND_ACCESSORIES"},
+    {categoryName:"EGGS_MEATS_FROZEN"},
+    {categoryName:"PET_CARE"},
+    {categoryName:"BABY_CARE"},
+    {categoryName:"BOOKS_AND_STATIONARY"},
+    ])
+
+
+
+  ATTA_AND_OTHER_FLOURS,
+    PULSES,
+    RICE_AND_OTHER_GRAINS,
+    VEGETABLES,
+    FRUITS,
+    HEALTH_AND_WELLNESS,
+    BATH_AND_BODY,
+    HAIR_CARE,
+    SKIN_CARE,
+    ORAL_CARE,
+    FACE_CARE,
+    DISINFECTANTS,
+    LAUNDRY_DETERGENT,
+    CLEANERS,
+    DISHWASHERS,
+    LIQUID_DETERGENTS,
+    REPELLENTS,
+    SHOE_CARE,
+    CHOCOLATES,
+    NAMKEEN_AND_SNACKS,
+    CHIPS_AND_CRISPS,
+    SWEETS,
+    CONFECTIONARY,
+    COLD_DRINKS,
+    JUICES_AND_DRINKS,
+    TEA_AND_COFFEE,
+    HEALTH_ENERGY_DRINKS,
+    WATER_AND_SODA,
+    MILK_DRINKS,
+    MILK_AND_MILK_PRODUCTS;
+
+
+       GROCERY_AND_STAPLES,
+        VEGETABLES_AND_FRUITS,
+        PERSONAL_CARE,
+        HOUSEHOLD_ITEMS,
+        KITCHEN_AND_DINING_NEEDS,
+        BISCUITS_SNACKS_CHOCOLATES,
+        BEVERAGES,
+        BREAKFAST_AND_DIARY,
+        NOODLES_SAUCES_INSTANT_FOOD,
+        HOME_FURNISHING_AND_DECOR,
+        HOME_IMPROVEMENT_AND_ACCESSORIES,
+        EGGS_MEATS_FROZEN,
+        PET_CARE,
+        BABY_CARE,
+        BOOKS_AND_STATIONARY,
+
+
+        {
+            "rent":2000,
+            "location":"Gurgaon",
+            "photosUrl":[
+                "abc.com"
+            ],
+            "occupancy":"single",
+            "lookingFor":"male",
+            "availabilityDate":"20/05/2021",
+            "amenities":["water cooler","ac","tv"],
+            "showContactNumber":false,
+            "description":"furnished room"
+
+        }

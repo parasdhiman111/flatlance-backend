@@ -1,0 +1,368 @@
+{
+  "info": {
+    "_postman_id": "9cf82eae-849b-40c9-b405-c5b2a5af9d77",
+    "name": "grocery-mono",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "POST /signup",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"firstName\":\"Rahul\",\r\n    \"lastName\":\"Kumar\",\r\n    \"email\":\"rahul@gmail.com\",\r\n    \"gender\":\"male\",\r\n    \"contactNumber\":\"9999919293\",\r\n    \"password\":\"123456\"\r\n\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:9090/api/auth/signup",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "auth",
+            "signup"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST /login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\":\"rahul@gmail.com\",\r\n    \"password\":\"123456\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:9090/api/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET /properties/owner",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwYXJhc0BnbWFpbC5jb20iLCJqdGkiOiI2MGE0ZjcxNDkzZGM5YTU4MGYzODMyZDIiLCJpYXQiOjE2MjE0OTAyMzcsImV4cCI6MTYyMTU3NjYzN30.ClL-TfFmFDDnq8zzPNLPXbgpsnDWeVKcIWTTBcunSPqr91O0V79DtXIJ3FsaUGoUQHocYpfmeldix5fQvXmnSg",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:9090/api/data/properties/owner",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "data",
+            "properties",
+            "owner"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET /properties/owner/id",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwYXJhczFAZ21haWwuY29tIiwianRpIjoiNjBhNGRhNzAxOTFkNWMzNGYyMDEyMDYwIiwiaWF0IjoxNjIxNDkwNzkxLCJleHAiOjE2MjE1NzcxOTF9.1Xk1AwFX8xkVxAcWJLbAL4biy5gnc7plX6HGhrlbJCthV0PkH_mJEPFGatUOpXdppDrDnUrh69a1QvWL8cUe1g",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:9090/api/data/properties/owner/60a4da70191d5c34f2012060",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "data",
+            "properties",
+            "owner",
+            "60a4da70191d5c34f2012060"
+          ],
+          "query": [
+            {
+              "key": "",
+              "value": null,
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "PUT /properties/owner/id",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwYXJhczFAZ21haWwuY29tIiwianRpIjoiNjBhNGRhNzAxOTFkNWMzNGYyMDEyMDYwIiwiaWF0IjoxNjIxNDkwNzkxLCJleHAiOjE2MjE1NzcxOTF9.1Xk1AwFX8xkVxAcWJLbAL4biy5gnc7plX6HGhrlbJCthV0PkH_mJEPFGatUOpXdppDrDnUrh69a1QvWL8cUe1g",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n        \"userId\": \"60a4da70191d5c34f2012060\",\r\n        \"rent\": 4000.0,\r\n        \"location\": \"Noida-UP\",\r\n        \"photosUrl\": [\r\n            \"xyz.com\"\r\n        ],\r\n        \"occupancy\": \"SINGLE\",\r\n        \"lookingFor\": \"MALE\",\r\n        \"availabilityDate\": \"20/05/2021\",\r\n        \"amenities\": [\r\n            \"water cooler\",\r\n            \"ac\",\r\n            \"tv\"\r\n        ],\r\n        \"contactNumber\": \"9090909090\",\r\n        \"showContactNumber\": false,\r\n        \"description\": \"furnished room\",\r\n        \"pgInterested\": false,\r\n        \"checkPropertyOwner\": true\r\n    }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:9090/api/data/properties/owner/60a4f32e33e8d43e0347a259",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "data",
+            "properties",
+            "owner",
+            "60a4f32e33e8d43e0347a259"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "DELETE /properties/id",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwYXJhczFAZ21haWwuY29tIiwianRpIjoiNjBhNGRhNzAxOTFkNWMzNGYyMDEyMDYwIiwiaWF0IjoxNjIxNDkwNzkxLCJleHAiOjE2MjE1NzcxOTF9.1Xk1AwFX8xkVxAcWJLbAL4biy5gnc7plX6HGhrlbJCthV0PkH_mJEPFGatUOpXdppDrDnUrh69a1QvWL8cUe1g",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:9090/api/data/properties/60a4f32e33e8d43e0347a259",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "data",
+            "properties",
+            "60a4f32e33e8d43e0347a259"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST /properties/owner",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwYXJhczFAZ21haWwuY29tIiwianRpIjoiNjBhNGRhNzAxOTFkNWMzNGYyMDEyMDYwIiwiaWF0IjoxNjIxNDkwNzkxLCJleHAiOjE2MjE1NzcxOTF9.1Xk1AwFX8xkVxAcWJLbAL4biy5gnc7plX6HGhrlbJCthV0PkH_mJEPFGatUOpXdppDrDnUrh69a1QvWL8cUe1g",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n        \"rent\": 8500.0,\r\n        \"location\": \"Faridabad\",\r\n        \"photosUrl\": [\r\n            \"zzz.com\"\r\n        ],\r\n        \"occupancy\": \"any\",\r\n        \"lookingFor\": \"FEMALE\",\r\n        \"availabilityDate\": \"08/06/2021\",\r\n        \"amenities\": [\r\n            \"kitchen\"\r\n        ],\r\n        \"contactNumber\": \"8978978987\",\r\n        \"showContactNumber\": false,\r\n        \"description\": \"semifurnished\",\r\n        \"pgInterested\": true,\r\n        \"checkPropertyOwner\": true\r\n    }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:9090/api/data/properties/owner",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "data",
+            "properties",
+            "owner"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST /properties/searcher",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYWh1bEBnbWFpbC5jb20iLCJqdGkiOiI2MGE1ZjY5NzdlMTg5MjEwZDkxMjRlNjkiLCJpYXQiOjE2MjE0OTM3MzksImV4cCI6MTYyMTU4MDEzOX0.AiV2VmoLSuG8psRQihagukfOEqBbRpoagS5s9ZSgIuEZ0FsPUUrgeIBQapX8RGOYr4x2pObAhVPOt51TA-Qt0A",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n        \"rent\": 2000.0,\r\n        \"location\": \"Delhi\",\r\n        \"occupancy\": \"any\",\r\n        \"lookingFor\": \"MALE\",\r\n        \"availabilityDate\": \"01/06/2021\",\r\n        \"contactNumber\": \"8745874587\",\r\n        \"showContactNumber\": false,\r\n        \"description\": \"semifurnished\",\r\n        \"pgInterested\": false\r\n    }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:9090/api/data/properties/searcher",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "data",
+            "properties",
+            "searcher"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET /properties/searcher",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYWh1bEBnbWFpbC5jb20iLCJqdGkiOiI2MGE1ZjY5NzdlMTg5MjEwZDkxMjRlNjkiLCJpYXQiOjE2MjE0OTM3MzksImV4cCI6MTYyMTU4MDEzOX0.AiV2VmoLSuG8psRQihagukfOEqBbRpoagS5s9ZSgIuEZ0FsPUUrgeIBQapX8RGOYr4x2pObAhVPOt51TA-Qt0A",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:9090/api/data/properties/searcher",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "data",
+            "properties",
+            "searcher"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET /properties/searcher/id",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYWh1bEBnbWFpbC5jb20iLCJqdGkiOiI2MGE1ZjY5NzdlMTg5MjEwZDkxMjRlNjkiLCJpYXQiOjE2MjE0OTM3MzksImV4cCI6MTYyMTU4MDEzOX0.AiV2VmoLSuG8psRQihagukfOEqBbRpoagS5s9ZSgIuEZ0FsPUUrgeIBQapX8RGOYr4x2pObAhVPOt51TA-Qt0A",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:9090/api/data/properties/searcher/60a5f6977e189210d9124e69",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "data",
+            "properties",
+            "searcher",
+            "60a5f6977e189210d9124e69"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "PUT /properties/searcher",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYWh1bEBnbWFpbC5jb20iLCJqdGkiOiI2MGE1ZjY5NzdlMTg5MjEwZDkxMjRlNjkiLCJpYXQiOjE2MjE0OTM3MzksImV4cCI6MTYyMTU4MDEzOX0.AiV2VmoLSuG8psRQihagukfOEqBbRpoagS5s9ZSgIuEZ0FsPUUrgeIBQapX8RGOYr4x2pObAhVPOt51TA-Qt0A",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n        \"rent\": 2000.0,\r\n        \"location\": \"Delhi West\",\r\n        \"occupancy\": \"any\",\r\n        \"lookingFor\": \"MALE\",\r\n        \"availabilityDate\": \"11/06/2021\",\r\n        \"contactNumber\": \"8845874587\",\r\n        \"showContactNumber\": false,\r\n        \"description\": \"semifurnished\",\r\n        \"pgInterested\": false\r\n    }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:9090/api/data/properties/searcher/60a6081541d8d6685fe8f329",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "data",
+            "properties",
+            "searcher",
+            "60a6081541d8d6685fe8f329"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
