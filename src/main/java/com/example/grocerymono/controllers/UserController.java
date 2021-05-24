@@ -4,16 +4,21 @@ import com.example.grocerymono.dto.requests.LoginRequest;
 import com.example.grocerymono.dto.requests.SignUpRequest;
 import com.example.grocerymono.dto.responses.JwtResponse;
 import com.example.grocerymono.dto.responses.MessageResponse;
+import com.example.grocerymono.models.PasswordConfirmationToken;
 import com.example.grocerymono.models.enums.Gender;
 import com.example.grocerymono.models.Role;
 import com.example.grocerymono.models.enums.RoleEnum;
 import com.example.grocerymono.models.User;
+import com.example.grocerymono.repositories.PasswordConfirmationTokenRepository;
 import com.example.grocerymono.repositories.RoleRepository;
 import com.example.grocerymono.repositories.UserRepository;
 import com.example.grocerymono.security.jwt.JwtUtils;
 import com.example.grocerymono.security.services.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.MailSender;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -21,17 +26,22 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import javax.mail.MessagingException;
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+
 @CrossOrigin(origins = "*",maxAge = 3600)
 @RestController
 @RequestMapping("/api/auth")
 public class UserController {
 
+    @Autowired
+    private MailSender mailSender;
 
     @Autowired
     private AuthenticationManager authenticationManager;
@@ -43,9 +53,14 @@ public class UserController {
     private UserRepository userRepository;
     @Autowired
     private RoleRepository roleRepository;
+    @Autowired
+    private PasswordConfirmationTokenRepository confirmationTokenRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Value("${paras.app.serviceUrl}")
+    private String serviceUrl;
 
     @PostMapping("/login")
     public ResponseEntity<?> loginRequest(@RequestBody LoginRequest loginRequest)
@@ -130,6 +145,25 @@ public class UserController {
     }
 
 
+    @PostMapping("/forgot")
+    public ResponseEntity<?> forgetPassword(@RequestParam String email)
+    {
+        Optional<User> user = userRepository.findByEmail(email);
+        if(user.isPresent())
+        {
+            PasswordConfirmationToken confirmationToken=new PasswordConfirmationToken(user.get());
+            confirmationTokenRepository.save(confirmationToken);
+                SimpleMailMessage mailMessage = new SimpleMailMessage();
+                mailMessage.setTo(email);
+                mailMessage.setSubject("Password Reset Mail");
+            mailMessage.setText("To complete the password reset process, please click here: "
+                    +serviceUrl+"/api/auth/confirm-reset?token="+confirmationToken.getConfirmationToken());
+                mailSender.send(mailMessage);
+
+            return ResponseEntity.ok().body("Successfully sent");
+        }
+        return ResponseEntity.ok().body("User is not present with email :"+email);
+    }
 
 
 }
